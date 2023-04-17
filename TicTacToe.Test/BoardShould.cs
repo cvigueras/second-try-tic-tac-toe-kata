@@ -1,4 +1,5 @@
 ﻿using FluentAssertions;
+using TicTacToe.Console;
 
 namespace TicTacToe.Test
 {
@@ -13,17 +14,11 @@ namespace TicTacToe.Test
         [Test]
         public void GetEmptyBoardWhenRoundStart()
         {
-            var result = Board.Print();
+            var board = new Board();
+
+            var result = board.Print();
 
             result.Should().Be("[ ][ ][ ][ ][ ][ ][ ][ ][ ]");
-        }
-    }
-
-    public class Board
-    {
-        public static object Print()
-        {
-            return "[ ][ ][ ][ ][ ][ ][ ][ ][ ]";
         }
     }
 }
