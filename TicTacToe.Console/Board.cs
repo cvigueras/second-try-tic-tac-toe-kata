@@ -11,16 +11,11 @@ public class Board
 
     public string Print()
     {
-        string result = string.Empty;
-        foreach (var item in _boardState)
-        {
-            result += item;
-        }
-        return result;
+        return _boardState.Cast<string?>().Aggregate(string.Empty, (current, item) => current + item);
     }
 
-    public void InsertMotion(string token, int x, int y)
+    public void AddMotion(Token token, Position position)
     {
-        _boardState[x, y] = $"[{token}]";
+        _boardState[position.X, position.Y] = $"[{token}]";
     }
 }

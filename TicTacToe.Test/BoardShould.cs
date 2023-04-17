@@ -26,7 +26,7 @@ namespace TicTacToe.Test
         {
             var board = new Board();
 
-            board.InsertMotion("X", 0, 0);
+            board.AddMotion(Token.X, new Position(0, 0));
             var result = board.Print();
 
             result.Should().Be("[X][ ][ ][ ][ ][ ][ ][ ][ ]");
@@ -37,7 +37,7 @@ namespace TicTacToe.Test
         {
             var board = new Board();
 
-            board.InsertMotion("Y", 0, 1);
+            board.AddMotion(Token.Y, new Position(0, 1));
             var result = board.Print();
 
             result.Should().Be("[ ][Y][ ][ ][ ][ ][ ][ ][ ]");
@@ -48,8 +48,8 @@ namespace TicTacToe.Test
         {
             var board = new Board();
 
-            board.InsertMotion("X", 0, 0);
-            board.InsertMotion("X", 0, 2);
+            board.AddMotion(Token.X, new Position(0, 0));
+            board.AddMotion(Token.X, new Position(0, 2));
             var result = board.Print();
 
             result.Should().Be("[X][ ][X][ ][ ][ ][ ][ ][ ]");
@@ -60,8 +60,8 @@ namespace TicTacToe.Test
         {
             var board = new Board();
 
-            board.InsertMotion("Y", 0, 1);
-            board.InsertMotion("Y", 1, 0);
+            board.AddMotion(Token.Y, new Position(0, 1));
+            board.AddMotion(Token.Y, new Position(1, 0));
             var result = board.Print();
 
             result.Should().Be("[ ][Y][ ][Y][ ][ ][ ][ ][ ]");
@@ -72,9 +72,9 @@ namespace TicTacToe.Test
         {
             var board = new Board();
 
-            board.InsertMotion("X", 0, 0);
-            board.InsertMotion("X", 0, 2);
-            board.InsertMotion("X", 1, 1);
+            board.AddMotion(Token.X, new Position(0, 0));
+            board.AddMotion(Token.X, new Position(0, 2));
+            board.AddMotion(Token.X, new Position(1, 1));
             var result = board.Print();
 
             result.Should().Be("[X][ ][X][ ][X][ ][ ][ ][ ]");
@@ -85,9 +85,9 @@ namespace TicTacToe.Test
         {
             var board = new Board();
 
-            board.InsertMotion("Y", 0, 1);
-            board.InsertMotion("Y", 1, 0);
-            board.InsertMotion("Y", 1, 2);
+            board.AddMotion(Token.Y, new Position(0, 1));
+            board.AddMotion(Token.Y, new Position(1, 0));
+            board.AddMotion(Token.Y, new Position(1, 2));
             var result = board.Print();
 
             result.Should().Be("[ ][Y][ ][Y][ ][Y][ ][ ][ ]");
