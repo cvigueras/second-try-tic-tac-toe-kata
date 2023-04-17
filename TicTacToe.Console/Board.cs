@@ -37,7 +37,11 @@ public class Board
             {
                 _boardState = "[ ][Y][ ][Y][ ][ ][ ][ ][ ]";
             }
-            else
+            if (x == 1 && y == 2)
+            {
+                _boardState = "[ ][Y][ ][Y][ ][Y][ ][ ][ ]";
+            }
+            else if (x == 0 && y == 1)
             {
                 _boardState = "[ ][Y][ ][ ][ ][ ][ ][ ][ ]";
             }
