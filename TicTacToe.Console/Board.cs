@@ -2,49 +2,25 @@
 
 public class Board
 {
-    private string _boardState;
+    private string[,] _boardState;
 
     public Board()
     {
-        _boardState = "[ ][ ][ ][ ][ ][ ][ ][ ][ ]";
+        _boardState = new[,] { { "[ ]", "[ ]", "[ ]" }, { "[ ]", "[ ]", "[ ]" }, { "[ ]", "[ ]", "[ ]" } };
     }
 
     public string Print()
     {
-        return _boardState;
+        string result = string.Empty;
+        foreach (var item in _boardState)
+        {
+            result += item;
+        }
+        return result;
     }
 
     public void InsertMotion(string token, int x, int y)
     {
-        if (token == "X")
-        {
-            if (x == 0 && y == 2)
-            {
-                _boardState = "[X][ ][X][ ][ ][ ][ ][ ][ ]";
-            }
-            if (x == 1 && y == 1)
-            {
-                _boardState = "[X][ ][X][ ][X][ ][ ][ ][ ]";
-            }
-            else if (x == 0 && y == 0)
-            {
-                _boardState = "[X][ ][ ][ ][ ][ ][ ][ ][ ]";
-            }
-        }
-        else
-        {
-            if (x == 1 && y == 0)
-            {
-                _boardState = "[ ][Y][ ][Y][ ][ ][ ][ ][ ]";
-            }
-            if (x == 1 && y == 2)
-            {
-                _boardState = "[ ][Y][ ][Y][ ][Y][ ][ ][ ]";
-            }
-            else if (x == 0 && y == 1)
-            {
-                _boardState = "[ ][Y][ ][ ][ ][ ][ ][ ][ ]";
-            }
-        }
+        _boardState[x, y] = $"[{token}]";
     }
 }
