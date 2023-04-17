@@ -16,6 +16,13 @@ public class Board
 
     public void InsertMotion(string token)
     {
-        _boardState = "[X][ ][ ][ ][ ][ ][ ][ ][ ]";
+        if (token == "X")
+        {
+            _boardState = "[X][ ][ ][ ][ ][ ][ ][ ][ ]";
+        }
+        else
+        {
+            _boardState = "[ ][Y][ ][ ][ ][ ][ ][ ][ ]";
+        }
     }
 }
