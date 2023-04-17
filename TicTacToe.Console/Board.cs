@@ -6,4 +6,9 @@ public class Board
     {
         return "[ ][ ][ ][ ][ ][ ][ ][ ][ ]";
     }
+
+    public void InsertMotion(string token)
+    {
+        throw new NotImplementedException();
+    }
 }

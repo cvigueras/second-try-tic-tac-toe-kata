@@ -20,5 +20,16 @@ namespace TicTacToe.Test
 
             result.Should().Be("[ ][ ][ ][ ][ ][ ][ ][ ][ ]");
         }
+
+        [Test]
+        public void InsertFirstMotionForPlayerX()
+        {
+            var board = new Board();
+
+            board.InsertMotion("X");
+            var result = board.Print();
+
+            result.Should().Be("[X][ ][ ][ ][ ][ ][ ][ ][ ]");
+        }
     }
 }
