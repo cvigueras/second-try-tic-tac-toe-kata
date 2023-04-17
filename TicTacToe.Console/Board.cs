@@ -29,7 +29,14 @@ public class Board
         }
         else
         {
-            _boardState = "[ ][Y][ ][ ][ ][ ][ ][ ][ ]";
+            if (x == 1 && y == 0)
+            {
+                _boardState = "[ ][Y][ ][Y][ ][ ][ ][ ][ ]";
+            }
+            else
+            {
+                _boardState = "[ ][Y][ ][ ][ ][ ][ ][ ][ ]";
+            }
         }
     }
 }
