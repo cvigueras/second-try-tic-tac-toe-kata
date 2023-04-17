@@ -23,7 +23,7 @@ namespace TicTacToe.Test
     {
         public static object Print()
         {
-            throw new NotImplementedException();
+            return "[ ][ ][ ][ ][ ][ ][ ][ ][ ]";
         }
     }
 }
