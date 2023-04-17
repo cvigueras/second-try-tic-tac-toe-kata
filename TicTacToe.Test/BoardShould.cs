@@ -26,7 +26,7 @@ namespace TicTacToe.Test
         {
             var board = new Board();
 
-            board.InsertMotion("X");
+            board.InsertMotion("X", 0, 0);
             var result = board.Print();
 
             result.Should().Be("[X][ ][ ][ ][ ][ ][ ][ ][ ]");
@@ -37,7 +37,7 @@ namespace TicTacToe.Test
         {
             var board = new Board();
 
-            board.InsertMotion("Y");
+            board.InsertMotion("Y", 0, 1);
             var result = board.Print();
 
             result.Should().Be("[ ][Y][ ][ ][ ][ ][ ][ ][ ]");
@@ -48,8 +48,8 @@ namespace TicTacToe.Test
         {
             var board = new Board();
 
-            board.InsertMotion("X");
-            board.InsertMotion("X");
+            board.InsertMotion("X", 0, 0);
+            board.InsertMotion("X", 0, 2);
             var result = board.Print();
 
             result.Should().Be("[X][ ][X][ ][ ][ ][ ][ ][ ]");

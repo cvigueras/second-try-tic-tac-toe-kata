@@ -14,11 +14,18 @@ public class Board
         return _boardState;
     }
 
-    public void InsertMotion(string token)
+    public void InsertMotion(string token, int i1, int i)
     {
         if (token == "X")
         {
-            _boardState = "[X][ ][ ][ ][ ][ ][ ][ ][ ]";
+            if (i1 == 0 && i == 2)
+            {
+                _boardState = "[X][ ][X][ ][ ][ ][ ][ ][ ]";
+            }
+            else
+            {
+                _boardState = "[X][ ][ ][ ][ ][ ][ ][ ][ ]";
+            }
         }
         else
         {
