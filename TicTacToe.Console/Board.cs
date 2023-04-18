@@ -32,7 +32,6 @@ public class Board
             CheckThirdColumn() ? FormatMessageWin(new Position(0, 2)) : string.Empty;
     }
 
-
     private string FormatMessageWin(Position position)
     {
         return $"Player {Value[position.X, position.Y].Replace("[", "").Replace("]", "")} WIN!";
