@@ -118,11 +118,11 @@ namespace TicTacToe.Test
         [Test]
         public void WinPlayerXBySecondRowRow()
         {
-            _board.AddMotion(Token.X, new Position(0, 0));
-            _board.AddMotion(Token.Y, new Position(1, 1));
             _board.AddMotion(Token.X, new Position(1, 0));
-            _board.AddMotion(Token.Y, new Position(1, 2));
-            _board.AddMotion(Token.X, new Position(2, 0));
+            _board.AddMotion(Token.Y, new Position(0, 0));
+            _board.AddMotion(Token.X, new Position(1, 1));
+            _board.AddMotion(Token.Y, new Position(2, 0));
+            _board.AddMotion(Token.X, new Position(1, 2));
 
             var result = _board.Print();
 

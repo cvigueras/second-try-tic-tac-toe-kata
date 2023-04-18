@@ -31,7 +31,7 @@ public class Board
             return "Player Y WIN!";
         }
 
-        if (_value[0, 0].Contains("X") && _value[1, 0].Contains("X") && _value[2, 0].Contains("X"))
+        if (_value[1, 0].Contains("X") && _value[1, 1].Contains("X") && _value[1, 2].Contains("X"))
         {
             return "Player X WIN!";
         }
