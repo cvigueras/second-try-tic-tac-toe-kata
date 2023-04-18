@@ -310,5 +310,13 @@ namespace TicTacToe.Test
 
             result.Should().Be("Player Y WIN!");
         }
+
+        [Test]
+        public void ThrowExceptionWhenPositionIsNotValid()
+        {
+            Action wrongPlay = () => _game.AddMotion(Token.Y, new Position(0, 3));
+
+            wrongPlay.Should().Throw<Exception>().WithMessage("Invalid movement!");
+        }
     }
 }

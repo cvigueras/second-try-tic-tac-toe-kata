@@ -2,7 +2,6 @@
 
 public class Game
 {
-
     private readonly Board _board;
 
     public Game()
