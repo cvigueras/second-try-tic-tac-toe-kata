@@ -3,35 +3,32 @@
 public class Game
 {
 
-    private readonly Board Board;
+    private readonly Board _board;
 
     public Game()
     {
-        Board = new Board();
+        _board = new Board();
     }
 
     public string Print()
     {
-        var winner = Board.CheckWinnerByRow();
-        if (!string.IsNullOrEmpty(winner))
-        {
-            return winner;
-        }
-        winner = Board.CheckWinnerByColumn();
-        if (!string.IsNullOrEmpty(winner))
-        {
-            return winner;
-        }
-        winner = Board.CheckWinnerByDiagonal();
-        if (!string.IsNullOrEmpty(winner))
-        {
-            return winner;
-        }
-        return Board.Value.Cast<string?>().Aggregate(string.Empty, (current, item) => current + item);
+        return !string.IsNullOrEmpty(CheckWinner())
+            ? CheckWinner()
+            : _board.Value.Cast<string?>()
+                .Aggregate(string.Empty,
+                    (current,
+                        item) => current + item);
+    }
+
+    private string CheckWinner()
+    {
+        return !string.IsNullOrEmpty(_board.CheckWinnerByRow()) ? _board.CheckWinnerByRow() :
+            !string.IsNullOrEmpty(_board.CheckWinnerByColumn()) ? _board.CheckWinnerByColumn() :
+            !string.IsNullOrEmpty(_board.CheckWinnerByDiagonal()) ? _board.CheckWinnerByDiagonal() : string.Empty;
     }
 
     public void AddMotion(Token token, Position position)
     {
-        Board.Value[position.X, position.Y] = $"[{token}]";
+        _board.Value[position.X, position.Y] = $"[{token}]";
     }
 }
