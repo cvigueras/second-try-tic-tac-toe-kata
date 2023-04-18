@@ -28,6 +28,10 @@ public class Game
 
     public void AddMotion(Token token, Position position)
     {
+        if (position.X > 2 || position.X < 0 || position.Y > 2 || position.Y < 0)
+        {
+            throw new Exception("Invalid movement!");
+        }
         _board.Value[position.X, position.Y] = $"[{token}]";
     }
 }
