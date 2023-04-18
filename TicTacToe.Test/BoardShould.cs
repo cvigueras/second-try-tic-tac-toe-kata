@@ -25,6 +25,7 @@ namespace TicTacToe.Test
         public void InsertFirstMotionForPlayerX()
         {
             _board.AddMotion(Token.X, new Position(0, 0));
+
             var result = _board.Print();
 
             result.Should().Be("[X][ ][ ][ ][ ][ ][ ][ ][ ]");
@@ -34,6 +35,7 @@ namespace TicTacToe.Test
         public void InsertFirstMotionForPlayerY()
         {
             _board.AddMotion(Token.Y, new Position(0, 1));
+
             var result = _board.Print();
 
             result.Should().Be("[ ][Y][ ][ ][ ][ ][ ][ ][ ]");
@@ -44,6 +46,7 @@ namespace TicTacToe.Test
         {
             _board.AddMotion(Token.X, new Position(0, 0));
             _board.AddMotion(Token.X, new Position(0, 2));
+
             var result = _board.Print();
 
             result.Should().Be("[X][ ][X][ ][ ][ ][ ][ ][ ]");
@@ -54,6 +57,7 @@ namespace TicTacToe.Test
         {
             _board.AddMotion(Token.Y, new Position(0, 1));
             _board.AddMotion(Token.Y, new Position(1, 0));
+
             var result = _board.Print();
 
             result.Should().Be("[ ][Y][ ][Y][ ][ ][ ][ ][ ]");
@@ -65,6 +69,7 @@ namespace TicTacToe.Test
             _board.AddMotion(Token.X, new Position(0, 0));
             _board.AddMotion(Token.X, new Position(0, 2));
             _board.AddMotion(Token.X, new Position(1, 1));
+
             var result = _board.Print();
 
             result.Should().Be("[X][ ][X][ ][X][ ][ ][ ][ ]");
@@ -76,9 +81,24 @@ namespace TicTacToe.Test
             _board.AddMotion(Token.Y, new Position(0, 1));
             _board.AddMotion(Token.Y, new Position(1, 0));
             _board.AddMotion(Token.Y, new Position(1, 2));
+
             var result = _board.Print();
 
             result.Should().Be("[ ][Y][ ][Y][ ][Y][ ][ ][ ]");
+        }
+
+        [Test]
+        public void WinPlayerXByFirstRow()
+        {
+            _board.AddMotion(Token.X, new Position(0, 0));
+            _board.AddMotion(Token.Y, new Position(1, 0));
+            _board.AddMotion(Token.X, new Position(0, 1));
+            _board.AddMotion(Token.Y, new Position(1, 2));
+            _board.AddMotion(Token.X, new Position(0, 2));
+
+            var result = _board.Print();
+
+            result.Should().Be("Player X WIN!");
         }
     }
 }

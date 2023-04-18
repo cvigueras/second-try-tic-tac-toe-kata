@@ -2,20 +2,20 @@
 
 public class Board
 {
-    private string[,] _boardState;
+    private readonly string[,] _value;
 
     public Board()
     {
-        _boardState = new[,] { { "[ ]", "[ ]", "[ ]" }, { "[ ]", "[ ]", "[ ]" }, { "[ ]", "[ ]", "[ ]" } };
+        _value = new[,] { { "[ ]", "[ ]", "[ ]" }, { "[ ]", "[ ]", "[ ]" }, { "[ ]", "[ ]", "[ ]" } };
     }
 
     public string Print()
     {
-        return _boardState.Cast<string?>().Aggregate(string.Empty, (current, item) => current + item);
+        return _value.Cast<string?>().Aggregate(string.Empty, (current, item) => current + item);
     }
 
     public void AddMotion(Token token, Position position)
     {
-        _boardState[position.X, position.Y] = $"[{token}]";
+        _value[position.X, position.Y] = $"[{token}]";
     }
 }
