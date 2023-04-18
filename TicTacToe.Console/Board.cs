@@ -1,4 +1,6 @@
-﻿namespace TicTacToe.Console;
+﻿using System.Numerics;
+
+namespace TicTacToe.Console;
 
 public class Board
 {
@@ -21,19 +23,17 @@ public class Board
 
     private string CheckWinnerByRow()
     {
-        if (_value[0, 0].Contains("X") && _value[0, 1].Contains("X") && _value[0, 2].Contains("X"))
+        if (_value[0, 0] != "[ ]" && _value[0, 0] == _value[0, 1] && _value[0, 0] == _value[0, 2])
         {
-            return "Player X WIN!";
+            return $"Player {_value[0, 0].Replace("[","").Replace("]","")} WIN!";
         }
-
-        if (_value[0, 0].Contains("Y") && _value[0, 1].Contains("Y") && _value[0, 2].Contains("Y"))
+        if (_value[1, 0] != "[ ]" && _value[1, 0] == _value[1, 1] && _value[1, 0] == _value[1, 2])
         {
-            return "Player Y WIN!";
+            return $"Player {_value[1, 0].Replace("[", "").Replace("]", "")} WIN!";
         }
-
-        if (_value[1, 0].Contains("X") && _value[1, 1].Contains("X") && _value[1, 2].Contains("X"))
+        if (_value[2, 0] != "[ ]" && _value[2, 0] == _value[2, 1] && _value[2, 0] == _value[2, 2])
         {
-            return "Player X WIN!";
+            return $"Player {_value[2, 0].Replace("[", "").Replace("]", "")} WIN!";
         }
 
         return string.Empty;
