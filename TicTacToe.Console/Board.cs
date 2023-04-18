@@ -1,88 +1,60 @@
-﻿using System.Numerics;
-
-namespace TicTacToe.Console;
+﻿namespace TicTacToe.Console;
 
 public class Board
 {
-    private readonly string[,] _value;
-
+    public string[,] Value;
     public Board()
     {
-        _value = new[,] { { "[ ]", "[ ]", "[ ]" }, { "[ ]", "[ ]", "[ ]" }, { "[ ]", "[ ]", "[ ]" } };
+        Value = new[,] { { "[ ]", "[ ]", "[ ]" }, { "[ ]", "[ ]", "[ ]" }, { "[ ]", "[ ]", "[ ]" } };
     }
 
-    public string Print()
+    public string CheckWinnerByDiagonal()
     {
-        var winner = CheckWinnerByRow();
-        if (!string.IsNullOrEmpty(winner))
+        if (Value[0, 0] != "[ ]" && Value[0, 0] == Value[1, 1] && Value[0, 0] == Value[2, 2])
         {
-            return winner;
+            return $"Player {Value[0, 0].Replace("[", "").Replace("]", "")} WIN!";
         }
-        winner = CheckWinnerByColumn();
-        if (!string.IsNullOrEmpty(winner))
+        if (Value[0, 2] != "[ ]" && Value[0, 2] == Value[1, 1] && Value[0, 2] == Value[2, 0])
         {
-            return winner;
-        }
-        winner = CheckWinnerByDiagonal();
-        if (!string.IsNullOrEmpty(winner))
-        {
-            return winner;
-        }
-        return _value.Cast<string?>().Aggregate(string.Empty, (current, item) => current + item);
-    }
-
-    private string CheckWinnerByDiagonal()
-    {
-        if (_value[0, 0] != "[ ]" && _value[0, 0] == _value[1, 1] && _value[0, 0] == _value[2, 2])
-        {
-            return $"Player {_value[0, 0].Replace("[", "").Replace("]", "")} WIN!";
-        }
-        if (_value[0, 2] != "[ ]" && _value[0, 2] == _value[1, 1] && _value[0, 2] == _value[2, 0])
-        {
-            return $"Player {_value[0, 2].Replace("[", "").Replace("]", "")} WIN!";
+            return $"Player {Value[0, 2].Replace("[", "").Replace("]", "")} WIN!";
         }
 
         return string.Empty;
     }
 
-    private string CheckWinnerByColumn()
+    public string CheckWinnerByColumn()
     {
-        if (_value[0, 0] != "[ ]" && _value[0, 0] == _value[1, 0] && _value[0, 0] == _value[2, 0])
+        if (Value[0, 0] != "[ ]" && Value[0, 0] == Value[1, 0] && Value[0, 0] == Value[2, 0])
         {
-            return $"Player {_value[0, 0].Replace("[", "").Replace("]", "")} WIN!";
+            return $"Player {Value[0, 0].Replace("[", "").Replace("]", "")} WIN!";
         }
-        if (_value[0, 1] != "[ ]" && _value[0, 1] == _value[1, 1] && _value[0, 1] == _value[2, 1])
+        if (Value[0, 1] != "[ ]" && Value[0, 1] == Value[1, 1] && Value[0, 1] == Value[2, 1])
         {
-            return $"Player {_value[0, 1].Replace("[", "").Replace("]", "")} WIN!";
+            return $"Player {Value[0, 1].Replace("[", "").Replace("]", "")} WIN!";
         }
-        if (_value[0, 2] != "[ ]" && _value[0, 2] == _value[1, 2] && _value[0, 2] == _value[2, 2])
+        if (Value[0, 2] != "[ ]" && Value[0, 2] == Value[1, 2] && Value[0, 2] == Value[2, 2])
         {
-            return $"Player {_value[0, 2].Replace("[", "").Replace("]", "")} WIN!";
+            return $"Player {Value[0, 2].Replace("[", "").Replace("]", "")} WIN!";
         }
 
         return string.Empty;
     }
 
-    private string CheckWinnerByRow()
+    public string CheckWinnerByRow()
     {
-        if (_value[0, 0] != "[ ]" && _value[0, 0] == _value[0, 1] && _value[0, 0] == _value[0, 2])
+        if (Value[0, 0] != "[ ]" && Value[0, 0] == Value[0, 1] && Value[0, 0] == Value[0, 2])
         {
-            return $"Player {_value[0, 0].Replace("[","").Replace("]","")} WIN!";
+            return $"Player {Value[0, 0].Replace("[","").Replace("]","")} WIN!";
         }
-        if (_value[1, 0] != "[ ]" && _value[1, 0] == _value[1, 1] && _value[1, 0] == _value[1, 2])
+        if (Value[1, 0] != "[ ]" && Value[1, 0] == Value[1, 1] && Value[1, 0] == Value[1, 2])
         {
-            return $"Player {_value[1, 0].Replace("[", "").Replace("]", "")} WIN!";
+            return $"Player {Value[1, 0].Replace("[", "").Replace("]", "")} WIN!";
         }
-        if (_value[2, 0] != "[ ]" && _value[2, 0] == _value[2, 1] && _value[2, 0] == _value[2, 2])
+        if (Value[2, 0] != "[ ]" && Value[2, 0] == Value[2, 1] && Value[2, 0] == Value[2, 2])
         {
-            return $"Player {_value[2, 0].Replace("[", "").Replace("]", "")} WIN!";
+            return $"Player {Value[2, 0].Replace("[", "").Replace("]", "")} WIN!";
         }
 
         return string.Empty;
-    }
-
-    public void AddMotion(Token token, Position position)
-    {
-        _value[position.X, position.Y] = $"[{token}]";
     }
 }
