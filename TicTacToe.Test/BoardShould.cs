@@ -116,7 +116,7 @@ namespace TicTacToe.Test
         }
 
         [Test]
-        public void WinPlayerXBySecondRowRow()
+        public void WinPlayerXBySecondRow()
         {
             _board.AddMotion(Token.X, new Position(1, 0));
             _board.AddMotion(Token.Y, new Position(0, 0));
@@ -130,7 +130,7 @@ namespace TicTacToe.Test
         }
 
         [Test]
-        public void WinPlayerYBySecondRowRow()
+        public void WinPlayerYBySecondRow()
         {
             _board.AddMotion(Token.Y, new Position(1, 0));
             _board.AddMotion(Token.X, new Position(0, 0));
@@ -144,7 +144,7 @@ namespace TicTacToe.Test
         }
 
         [Test]
-        public void WinPlayerXByThirdRowRow()
+        public void WinPlayerXByThirdRow()
         {
             _board.AddMotion(Token.X, new Position(2, 0));
             _board.AddMotion(Token.Y, new Position(0, 0));
@@ -155,6 +155,20 @@ namespace TicTacToe.Test
             var result = _board.Print();
 
             result.Should().Be("Player X WIN!");
+        }
+
+        [Test]
+        public void WinPlayerYByThirdRow()
+        {
+            _board.AddMotion(Token.Y, new Position(2, 0));
+            _board.AddMotion(Token.X, new Position(0, 0));
+            _board.AddMotion(Token.Y, new Position(2, 1));
+            _board.AddMotion(Token.X, new Position(1, 0));
+            _board.AddMotion(Token.Y, new Position(2, 2));
+
+            var result = _board.Print();
+
+            result.Should().Be("Player Y WIN!");
         }
     }
 }
