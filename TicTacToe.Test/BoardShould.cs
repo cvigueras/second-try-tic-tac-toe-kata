@@ -182,7 +182,7 @@ namespace TicTacToe.Test
 
             var result = _board.Print();
 
-            result.Should().Be("Player Y WIN!");
+            result.Should().Be("Player X WIN!");
         }
     }
 }

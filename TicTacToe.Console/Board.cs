@@ -13,6 +13,10 @@ public class Board
 
     public string Print()
     {
+        if (_value[0, 0].Contains("X") && _value[1, 0].Contains("X") && _value[2, 0].Contains("X"))
+        {
+            return "Player X WIN!";
+        }
         var winner = CheckWinnerByRow();
         if (!string.IsNullOrEmpty(winner))
         {
