@@ -13,22 +13,6 @@ public class Board
 
     public string Print()
     {
-        if (_value[0, 0].Contains("X") && _value[1, 1].Contains("X") && _value[2, 2].Contains("X"))
-        {
-            return "Player X WIN!";
-        }
-        if (_value[0, 0].Contains("Y") && _value[1, 1].Contains("Y") && _value[2, 2].Contains("Y"))
-        {
-            return "Player Y WIN!";
-        }
-        if (_value[0, 2].Contains("X") && _value[1, 1].Contains("X") && _value[2, 0].Contains("X"))
-        {
-            return "Player X WIN!";
-        }
-        if (_value[0, 2].Contains("Y") && _value[1, 1].Contains("Y") && _value[2, 0].Contains("Y"))
-        {
-            return "Player Y WIN!";
-        }
         var winner = CheckWinnerByRow();
         if (!string.IsNullOrEmpty(winner))
         {
@@ -39,7 +23,37 @@ public class Board
         {
             return winner;
         }
+        winner = CheckWinnerByDiagonal();
+        if (!string.IsNullOrEmpty(winner))
+        {
+            return winner;
+        }
         return _value.Cast<string?>().Aggregate(string.Empty, (current, item) => current + item);
+    }
+
+    private string CheckWinnerByDiagonal()
+    {
+        if (_value[0, 0].Contains("X") && _value[1, 1].Contains("X") && _value[2, 2].Contains("X"))
+        {
+            return "Player X WIN!";
+        }
+
+        if (_value[0, 0].Contains("Y") && _value[1, 1].Contains("Y") && _value[2, 2].Contains("Y"))
+        {
+            return "Player Y WIN!";
+        }
+
+        if (_value[0, 2].Contains("X") && _value[1, 1].Contains("X") && _value[2, 0].Contains("X"))
+        {
+            return "Player X WIN!";
+        }
+
+        if (_value[0, 2].Contains("Y") && _value[1, 1].Contains("Y") && _value[2, 0].Contains("Y"))
+        {
+            return "Player Y WIN!";
+        }
+
+        return string.Empty;
     }
 
     private string CheckWinnerByColumn()
