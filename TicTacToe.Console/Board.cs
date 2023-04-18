@@ -25,6 +25,10 @@ public class Board
         {
             return "Player X WIN!";
         }
+        if (_value[0, 1].Contains("Y") && _value[1, 1].Contains("Y") && _value[2, 1].Contains("Y"))
+        {
+            return "Player Y WIN!";
+        }
 
         var winner = CheckWinnerByRow();
         if (!string.IsNullOrEmpty(winner))
