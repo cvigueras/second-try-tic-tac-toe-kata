@@ -15,6 +15,10 @@ public class Board
         {
             return "Player X WIN!";
         }
+        if (_value[0, 0].Contains("Y") && _value[0, 1].Contains("Y") && _value[0, 2].Contains("Y"))
+        {
+            return "Player Y WIN!";
+        }
         return _value.Cast<string?>().Aggregate(string.Empty, (current, item) => current + item);
     }
 
