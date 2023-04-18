@@ -15,16 +15,6 @@ public class Board
             CheckSecondDiagonal() ? FormatMessageWin(new Position(0, 2)) : string.Empty;
     }
 
-    private bool CheckSecondDiagonal()
-    {
-        return Value[0, 2] != "[ ]" && Value[0, 2] == Value[1, 1] && Value[0, 2] == Value[2, 0];
-    }
-
-    private bool CheckFirstDiagonal()
-    {
-        return Value[0, 0] != "[ ]" && Value[0, 0] == Value[1, 1] && Value[0, 0] == Value[2, 2];
-    }
-
     public string CheckWinnerByColumn()
     {
         return CheckFirstColumn() ? FormatMessageWin(new Position(0, 0)) :
@@ -32,16 +22,26 @@ public class Board
             CheckThirdColumn() ? FormatMessageWin(new Position(0, 2)) : string.Empty;
     }
 
-    private string FormatMessageWin(Position position)
-    {
-        return $"Player {Value[position.X, position.Y].Replace("[", "").Replace("]", "")} WIN!";
-    }
-
     public string CheckWinnerByRow()
     {
         return CheckFirstRow() ? FormatMessageWin(new Position(0, 0)) :
             CheckSecondRow() ? FormatMessageWin(new Position(1, 0)) :
             CheckThirdRow() ? FormatMessageWin(new Position(2, 0)) : string.Empty;
+    }
+
+    public bool IsPositionBusy(Position position)
+    {
+        return Value[position.X, position.Y] != "[ ]";
+    }
+
+    private bool CheckFirstDiagonal()
+    {
+        return Value[0, 0] != "[ ]" && Value[0, 0] == Value[1, 1] && Value[0, 0] == Value[2, 2];
+    }
+
+    private bool CheckSecondDiagonal()
+    {
+        return Value[0, 2] != "[ ]" && Value[0, 2] == Value[1, 1] && Value[0, 2] == Value[2, 0];
     }
 
     private bool CheckFirstRow()
@@ -58,10 +58,12 @@ public class Board
     {
         return Value[2, 0] != "[ ]" && Value[2, 0] == Value[2, 1] && Value[2, 0] == Value[2, 2];
     }
+
     private bool CheckFirstColumn()
     {
         return Value[0, 0] != "[ ]" && Value[0, 0] == Value[1, 0] && Value[0, 0] == Value[2, 0];
     }
+
     private bool CheckSecondColumn()
     {
         return Value[0, 1] != "[ ]" && Value[0, 1] == Value[1, 1] && Value[0, 1] == Value[2, 1];
@@ -72,8 +74,8 @@ public class Board
         return Value[0, 2] != "[ ]" && Value[0, 2] == Value[1, 2] && Value[0, 2] == Value[2, 2];
     }
 
-    public bool IsPositionBusy(Position position)
+    private string FormatMessageWin(Position position)
     {
-        return Value[position.X, position.Y] != "[ ]";
+        return $"Player {Value[position.X, position.Y].Replace("[", "").Replace("]", "")} WIN!";
     }
 }
