@@ -71,4 +71,9 @@ public class Board
     {
         return Value[0, 2] != "[ ]" && Value[0, 2] == Value[1, 2] && Value[0, 2] == Value[2, 2];
     }
+
+    public bool IsPositionBusy(Position position)
+    {
+        return Value[position.X, position.Y] != "[ ]";
+    }
 }

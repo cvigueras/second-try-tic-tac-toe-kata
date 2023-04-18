@@ -28,16 +28,15 @@ public class Game
 
     public void AddMotion(Token token, Position position)
     {
-        if (position.CheckValidPosition())
-        {
-            throw new Exception("Invalid movement!");
-        }
-
-        if (_board.Value[position.X, position.Y] != "[ ]")
-        {
-            throw new Exception("Invalid movement!");
-        }
-
+        IsValidMovement(position);
         _board.Value[position.X, position.Y] = $"[{token}]";
+    }
+
+    private void IsValidMovement(Position position)
+    {
+        if (position.CheckValidPosition() || _board.IsPositionBusy(position))
+        {
+            throw new Exception("Invalid movement!");
+        }
     }
 }
