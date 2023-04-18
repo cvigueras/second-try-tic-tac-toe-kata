@@ -10,4 +10,10 @@ public class Position
 
     public int X { get;}
     public int Y { get;}
+
+    public bool CheckValidPosition()
+    {
+        if (X is > 2 or < 0) return true;
+        return Y is > 2 or < 0;
+    }
 }

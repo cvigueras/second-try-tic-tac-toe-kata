@@ -28,7 +28,7 @@ public class Game
 
     public void AddMotion(Token token, Position position)
     {
-        if (position.X > 2 || position.X < 0 || position.Y > 2 || position.Y < 0)
+        if (position.CheckValidPosition())
         {
             throw new Exception("Invalid movement!");
         }
