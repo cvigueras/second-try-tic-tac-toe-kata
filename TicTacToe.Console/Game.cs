@@ -32,6 +32,12 @@ public class Game
         {
             throw new Exception("Invalid movement!");
         }
+
+        if (_board.Value[position.X, position.Y] != "[ ]")
+        {
+            throw new Exception("Invalid movement!");
+        }
+
         _board.Value[position.X, position.Y] = $"[{token}]";
     }
 }
