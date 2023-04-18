@@ -170,5 +170,19 @@ namespace TicTacToe.Test
 
             result.Should().Be("Player Y WIN!");
         }
+
+        [Test]
+        public void WinPlayerXByFirstColumn()
+        {
+            _board.AddMotion(Token.X, new Position(0, 0));
+            _board.AddMotion(Token.Y, new Position(0, 1));
+            _board.AddMotion(Token.X, new Position(1, 0));
+            _board.AddMotion(Token.Y, new Position(1, 1));
+            _board.AddMotion(Token.X, new Position(2, 0));
+
+            var result = _board.Print();
+
+            result.Should().Be("Player Y WIN!");
+        }
     }
 }
