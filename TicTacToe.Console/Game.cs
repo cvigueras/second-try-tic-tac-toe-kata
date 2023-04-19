@@ -5,13 +5,11 @@ public class Game
     private readonly Board _board;
     private Token _tokenTurn;
     private int _numberOfPlays;
-    private readonly int _maxNumberOfPlays;
 
     public Game()
     {
         _board = new Board();
         _tokenTurn = Token.X;
-        _maxNumberOfPlays = 9;
         _numberOfPlays = 0;
     }
 
@@ -30,7 +28,7 @@ public class Game
         return !string.IsNullOrEmpty(_board.GetWinnerByRow()) ? _board.GetWinnerByRow() :
             !string.IsNullOrEmpty(_board.GetWinnerByColumn()) ? _board.GetWinnerByColumn() :
             !string.IsNullOrEmpty(_board.CheckWinnerByDiagonal()) ? _board.CheckWinnerByDiagonal() :
-            _numberOfPlays == _maxNumberOfPlays ? "Draw!" : string.Empty;
+            _numberOfPlays == _board.TotalFields ? "Draw!" : string.Empty;
     }
 
     public void AddMotion(Position position)
