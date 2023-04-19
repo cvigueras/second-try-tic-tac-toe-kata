@@ -2,5 +2,5 @@
 
 Console.WriteLine("Hello world");
 var game = new Game();
-Console.WriteLine(game.Print());
+Console.WriteLine(game.GetStatus());
 Console.ReadLine();

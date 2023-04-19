@@ -11,7 +11,7 @@ public class Game
         _tokenTurn = Token.X;
     }
 
-    public string Print()
+    public string GetStatus()
     {
         return !string.IsNullOrEmpty(CheckWinner())
             ? CheckWinner()

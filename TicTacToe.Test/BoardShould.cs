@@ -16,7 +16,7 @@ namespace TicTacToe.Test
         [Test]
         public void GetEmptyBoardWhenRoundStart()
         {
-            var result = _game.Print();
+            var result = _game.GetStatus();
 
             result.Should().Be("[ ][ ][ ][ ][ ][ ][ ][ ][ ]");
         }
@@ -26,7 +26,7 @@ namespace TicTacToe.Test
         {
             _game.AddMotion(new Position(0, 0));
 
-            var result = _game.Print();
+            var result = _game.GetStatus();
 
             result.Should().Be("[X][ ][ ][ ][ ][ ][ ][ ][ ]");
         }
@@ -37,7 +37,7 @@ namespace TicTacToe.Test
             _game.AddMotion(new Position(0, 0));
             _game.AddMotion(new Position(0, 1));
 
-            var result = _game.Print();
+            var result = _game.GetStatus();
 
             result.Should().Be("[X][Y][ ][ ][ ][ ][ ][ ][ ]");
         }
@@ -49,7 +49,7 @@ namespace TicTacToe.Test
             _game.AddMotion(new Position(0, 1));
             _game.AddMotion(new Position(0, 2));
 
-            var result = _game.Print();
+            var result = _game.GetStatus();
 
             result.Should().Be("[X][Y][X][ ][ ][ ][ ][ ][ ]");
         }
@@ -62,7 +62,7 @@ namespace TicTacToe.Test
             _game.AddMotion(new Position(2, 2));
             _game.AddMotion(new Position(1, 0));
 
-            var result = _game.Print();
+            var result = _game.GetStatus();
 
             result.Should().Be("[X][Y][ ][Y][ ][ ][ ][ ][X]");
         }
@@ -76,7 +76,7 @@ namespace TicTacToe.Test
             _game.AddMotion(new Position(2, 2));
             _game.AddMotion(new Position(1, 1));
 
-            var result = _game.Print();
+            var result = _game.GetStatus();
 
             result.Should().Be("[X][Y][X][ ][X][ ][ ][ ][Y]");
         }
@@ -91,7 +91,7 @@ namespace TicTacToe.Test
             _game.AddMotion(new Position(2, 1));
             _game.AddMotion(new Position(1, 2));
 
-            var result = _game.Print();
+            var result = _game.GetStatus();
 
             result.Should().Be("[X][Y][ ][Y][X][Y][ ][X][ ]");
         }
@@ -105,7 +105,7 @@ namespace TicTacToe.Test
             _game.AddMotion(new Position(1, 2));
             _game.AddMotion(new Position(0, 2));
 
-            var result = _game.Print();
+            var result = _game.GetStatus();
 
             result.Should().Be("Player X WIN!");
         }
@@ -120,7 +120,7 @@ namespace TicTacToe.Test
             _game.AddMotion(new Position(2, 2));
             _game.AddMotion(new Position(0, 2));
 
-            var result = _game.Print();
+            var result = _game.GetStatus();
 
             result.Should().Be("Player Y WIN!");
         }
@@ -134,7 +134,7 @@ namespace TicTacToe.Test
             _game.AddMotion(new Position(2, 0));
             _game.AddMotion(new Position(1, 2));
 
-            var result = _game.Print();
+            var result = _game.GetStatus();
 
             result.Should().Be("Player X WIN!");
         }
@@ -149,7 +149,7 @@ namespace TicTacToe.Test
             _game.AddMotion(new Position(2, 2));
             _game.AddMotion(new Position(1, 2));
 
-            var result = _game.Print();
+            var result = _game.GetStatus();
 
             result.Should().Be("Player Y WIN!");
         }
@@ -163,7 +163,7 @@ namespace TicTacToe.Test
             _game.AddMotion(new Position(1, 0));
             _game.AddMotion(new Position(2, 2));
 
-            var result = _game.Print();
+            var result = _game.GetStatus();
 
             result.Should().Be("Player X WIN!");
         }
@@ -178,7 +178,7 @@ namespace TicTacToe.Test
             _game.AddMotion(new Position(1, 1));
             _game.AddMotion(new Position(2, 2));
 
-            var result = _game.Print();
+            var result = _game.GetStatus();
 
             result.Should().Be("Player Y WIN!");
         }
@@ -192,7 +192,7 @@ namespace TicTacToe.Test
             _game.AddMotion(new Position(1, 1));
             _game.AddMotion(new Position(2, 0));
 
-            var result = _game.Print();
+            var result = _game.GetStatus();
 
             result.Should().Be("Player X WIN!");
         }
@@ -207,7 +207,7 @@ namespace TicTacToe.Test
             _game.AddMotion(new Position(2, 2));
             _game.AddMotion(new Position(2, 0));
 
-            var result = _game.Print();
+            var result = _game.GetStatus();
 
             result.Should().Be("Player Y WIN!");
         }
@@ -221,7 +221,7 @@ namespace TicTacToe.Test
             _game.AddMotion(new Position(1, 0));
             _game.AddMotion(new Position(2, 1));
 
-            var result = _game.Print();
+            var result = _game.GetStatus();
 
             result.Should().Be("Player X WIN!");
         }
@@ -236,7 +236,7 @@ namespace TicTacToe.Test
             _game.AddMotion(new Position(2, 2));
             _game.AddMotion(new Position(2, 1));
 
-            var result = _game.Print();
+            var result = _game.GetStatus();
 
             result.Should().Be("Player Y WIN!");
         }
@@ -250,7 +250,7 @@ namespace TicTacToe.Test
             _game.AddMotion(new Position(1, 0));
             _game.AddMotion(new Position(2, 2));
 
-            var result = _game.Print();
+            var result = _game.GetStatus();
 
             result.Should().Be("Player X WIN!");
         }
@@ -265,7 +265,7 @@ namespace TicTacToe.Test
             _game.AddMotion(new Position(1, 1));
             _game.AddMotion(new Position(2, 2));
 
-            var result = _game.Print();
+            var result = _game.GetStatus();
 
             result.Should().Be("Player Y WIN!");
         }
@@ -279,7 +279,7 @@ namespace TicTacToe.Test
             _game.AddMotion(new Position(1, 0));
             _game.AddMotion(new Position(2, 2));
 
-            var result = _game.Print();
+            var result = _game.GetStatus();
 
             result.Should().Be("Player X WIN!");
         }
@@ -294,7 +294,7 @@ namespace TicTacToe.Test
             _game.AddMotion(new Position(1, 2));
             _game.AddMotion(new Position(2, 2));
 
-            var result = _game.Print();
+            var result = _game.GetStatus();
 
             result.Should().Be("Player Y WIN!");
         }
@@ -308,7 +308,7 @@ namespace TicTacToe.Test
             _game.AddMotion(new Position(1, 0));
             _game.AddMotion(new Position(2, 0));
 
-            var result = _game.Print();
+            var result = _game.GetStatus();
 
             result.Should().Be("Player X WIN!");
         }
@@ -323,7 +323,7 @@ namespace TicTacToe.Test
             _game.AddMotion(new Position(2, 2));
             _game.AddMotion(new Position(2, 0));
 
-            var result = _game.Print();
+            var result = _game.GetStatus();
 
             result.Should().Be("Player Y WIN!");
         }
@@ -360,7 +360,7 @@ namespace TicTacToe.Test
             _game.AddMotion(new Position(0, 2));
             _game.AddMotion(new Position(2, 2));
 
-            var result = _game.Print();
+            var result = _game.GetStatus();
 
             result.Should().Be("Draw!");
         }
