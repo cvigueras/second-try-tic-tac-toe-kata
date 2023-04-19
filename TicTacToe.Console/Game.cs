@@ -4,13 +4,11 @@ public class Game
 {
     private readonly Board _board;
     private Token _tokenTurn;
-    private int _numberOfPlays;
 
     public Game()
     {
         _board = new Board();
         _tokenTurn = Token.X;
-        _numberOfPlays = 0;
     }
 
     public string Print()
@@ -28,7 +26,7 @@ public class Game
         return !string.IsNullOrEmpty(_board.GetWinnerByRow()) ? _board.GetWinnerByRow() :
             !string.IsNullOrEmpty(_board.GetWinnerByColumn()) ? _board.GetWinnerByColumn() :
             !string.IsNullOrEmpty(_board.CheckWinnerByDiagonal()) ? _board.CheckWinnerByDiagonal() :
-            _numberOfPlays == _board.TotalFields ? "Draw!" : string.Empty;
+            _board.FreeFields == 0 ? "Draw!" : string.Empty;
     }
 
     public void AddMotion(Position position)
@@ -48,7 +46,7 @@ public class Game
 
     private void SetTurn()
     {
-        _numberOfPlays++;
+        _board.FreeFields--;
         switch (_tokenTurn)
         {
             case Token.X:

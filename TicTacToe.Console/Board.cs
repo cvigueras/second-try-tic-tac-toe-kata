@@ -3,12 +3,12 @@
 public class Board
 {
     public string[,] Value;
-    public int TotalFields;
+    public int FreeFields;
 
     public Board()
     {
         Value = new[,] { { "[ ]", "[ ]", "[ ]" }, { "[ ]", "[ ]", "[ ]" }, { "[ ]", "[ ]", "[ ]" } };
-        TotalFields = Value.GetLength(0) * Value.GetLength(1);
+        FreeFields = Value.GetLength(0) * Value.GetLength(1);
     }
 
     public string CheckWinnerByDiagonal()
