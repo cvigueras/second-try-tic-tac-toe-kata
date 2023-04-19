@@ -44,23 +44,22 @@ while (game.Board.FreeFields > 0)
 }
 
 
-void PrintBoard(Game game)
+void PrintBoard(Game newGame)
 {
-    for (var i = 0; i < game?.Board.Value.GetLength(0); i++)
+    for (var i = 0; i < newGame.Board.Value.GetLength(0); i++)
     {
         Console.WriteLine(Environment.NewLine);
-        for (var j = 0; j < game?.Board.Value.GetLength(1); j++)
+        for (var j = 0; j < newGame.Board.Value.GetLength(1); j++)
         {
             if (j == 0)
             {
-                Console.Write("            " + game?.Board.Value[i, j]);
+                Console.Write("            " + newGame.Board.Value[i, j]);
             }
             else
             {
-                Console.Write("  " + game?.Board.Value[i, j]);
+                Console.Write("  " + newGame.Board.Value[i, j]);
             }
         }
     }
     Console.WriteLine();
 }
-
