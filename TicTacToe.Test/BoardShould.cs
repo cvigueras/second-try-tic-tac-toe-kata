@@ -346,5 +346,23 @@ namespace TicTacToe.Test
 
             wrongPlay.Should().Throw<Exception>().WithMessage("Invalid movement!");
         }
+
+        [Test]
+        public void DrawMatchWhenNobodyWin()
+        {
+            _game.AddMotion(new Position(2, 0));
+            _game.AddMotion(new Position(1, 0));
+            _game.AddMotion(new Position(0, 1));
+            _game.AddMotion(new Position(0, 0));
+            _game.AddMotion(new Position(1, 1));
+            _game.AddMotion(new Position(2, 1));            
+            _game.AddMotion(new Position(1, 2));
+            _game.AddMotion(new Position(0, 2));
+            _game.AddMotion(new Position(2, 2));
+
+            var result = _game.Print();
+
+            result.Should().Be("Draw!");
+        }
     }
 }
