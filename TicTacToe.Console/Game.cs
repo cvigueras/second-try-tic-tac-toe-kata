@@ -28,14 +28,10 @@ public class Game
             !string.IsNullOrEmpty(_board.CheckWinnerByDiagonal()) ? _board.CheckWinnerByDiagonal() : string.Empty;
     }
 
-    public void AddMotion(Token token, Position position)
+    public void AddMotion(Position position)
     {
-        if (token != _tokenTurn)
-        {
-            throw new Exception("Invalid movement!");
-        }
         IsValidMovement(position);
-        _board.Value[position.X, position.Y] = $"[{token}]";
+        _board.Value[position.X, position.Y] = $"[{_tokenTurn}]";
         ChangeTurn();
     }
 
@@ -49,15 +45,14 @@ public class Game
 
     private void ChangeTurn()
     {
-        if (_tokenTurn == Token.X)
+        switch (_tokenTurn)
         {
-            _tokenTurn = Token.Y;
-            return;
-        }
-
-        if (_tokenTurn == Token.Y)
-        {
-            _tokenTurn = Token.X;
+            case Token.X:
+                _tokenTurn = Token.Y;
+                return;
+            case Token.Y:
+                _tokenTurn = Token.X;
+                break;
         }
     }
 }
