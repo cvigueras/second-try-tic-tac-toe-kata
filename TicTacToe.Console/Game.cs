@@ -21,8 +21,8 @@ public class Game
 
     private string CheckWinner()
     {
-        return !string.IsNullOrEmpty(_board.CheckWinnerByRow()) ? _board.CheckWinnerByRow() :
-            !string.IsNullOrEmpty(_board.CheckWinnerByColumn()) ? _board.CheckWinnerByColumn() :
+        return !string.IsNullOrEmpty(_board.GetWinnerByRow()) ? _board.GetWinnerByRow() :
+            !string.IsNullOrEmpty(_board.GetWinnerByColumn()) ? _board.GetWinnerByColumn() :
             !string.IsNullOrEmpty(_board.CheckWinnerByDiagonal()) ? _board.CheckWinnerByDiagonal() : string.Empty;
     }
 

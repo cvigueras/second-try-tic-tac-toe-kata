@@ -11,22 +11,29 @@ public class Board
 
     public string CheckWinnerByDiagonal()
     {
-        return CheckFirstDiagonal() ? FormatMessageWin(new Position(0, 0)) :
-            CheckSecondDiagonal() ? FormatMessageWin(new Position(0, 2)) : string.Empty;
+        return !string.IsNullOrEmpty(CheckFirstDiagonal()) ? CheckFirstDiagonal() :
+            !string.IsNullOrEmpty(CheckSecondDiagonal()) ? CheckSecondDiagonal() : string.Empty;
     }
 
-    public string CheckWinnerByColumn()
+    public string GetWinnerByColumn()
     {
-        return CheckFirstColumn() ? FormatMessageWin(new Position(0, 0)) :
-            CheckSecondColumn() ? FormatMessageWin(new Position(0, 1)) :
-            CheckThirdColumn() ? FormatMessageWin(new Position(0, 2)) : string.Empty;
+        for (var col = 0; col < Value.GetLength(1); col++)
+        {
+            if (Value[0, col] != "[ ]" && Value[0, col] == Value[1, col] && Value[1, col] == Value[2, col])
+                return FormatMessageWin(new Position(0,col));
+        }
+        return string.Empty;
     }
 
-    public string CheckWinnerByRow()
+    public string GetWinnerByRow()
     {
-        return CheckFirstRow() ? FormatMessageWin(new Position(0, 0)) :
-            CheckSecondRow() ? FormatMessageWin(new Position(1, 0)) :
-            CheckThirdRow() ? FormatMessageWin(new Position(2, 0)) : string.Empty;
+        for (var row = 0; row < Value.GetLength(0); row++)
+        {
+            if (Value[row, 0] != "[ ]" && Value[row, 0] == Value[row, 1]
+                                                && Value[row, 2] == Value[row, 1])
+                return FormatMessageWin(new Position(row, 0));
+        }
+        return string.Empty;
     }
 
     public bool IsPositionBusy(Position position)
@@ -34,44 +41,22 @@ public class Board
         return Value[position.X, position.Y] != "[ ]";
     }
 
-    private bool CheckFirstDiagonal()
+    private string CheckFirstDiagonal()
     {
-        return Value[0, 0] != "[ ]" && Value[0, 0] == Value[1, 1] && Value[0, 0] == Value[2, 2];
+        if (Value[0, 0] != "[ ]" && Value[0, 0] == Value[1, 1] && Value[0, 0] == Value[2, 2])
+        {
+            return FormatMessageWin(new Position(0,0));
+        }
+        return string.Empty;
     }
 
-    private bool CheckSecondDiagonal()
+    private string CheckSecondDiagonal()
     {
-        return Value[0, 2] != "[ ]" && Value[0, 2] == Value[1, 1] && Value[0, 2] == Value[2, 0];
-    }
-
-    private bool CheckFirstRow()
-    {
-        return Value[0, 0] != "[ ]" && Value[0, 0] == Value[0, 1] && Value[0, 0] == Value[0, 2];
-    }
-
-    private bool CheckSecondRow()
-    {
-        return Value[1, 0] != "[ ]" && Value[1, 0] == Value[1, 1] && Value[1, 0] == Value[1, 2];
-    }
-
-    private bool CheckThirdRow()
-    {
-        return Value[2, 0] != "[ ]" && Value[2, 0] == Value[2, 1] && Value[2, 0] == Value[2, 2];
-    }
-
-    private bool CheckFirstColumn()
-    {
-        return Value[0, 0] != "[ ]" && Value[0, 0] == Value[1, 0] && Value[0, 0] == Value[2, 0];
-    }
-
-    private bool CheckSecondColumn()
-    {
-        return Value[0, 1] != "[ ]" && Value[0, 1] == Value[1, 1] && Value[0, 1] == Value[2, 1];
-    }
-
-    private bool CheckThirdColumn()
-    {
-        return Value[0, 2] != "[ ]" && Value[0, 2] == Value[1, 2] && Value[0, 2] == Value[2, 2];
+        if (Value[0, 2] != "[ ]" && Value[0, 2] == Value[1, 1] && Value[0, 2] == Value[2, 0])
+        {
+            return FormatMessageWin(new Position(0, 2));
+        }
+        return string.Empty;
     }
 
     private string FormatMessageWin(Position position)
