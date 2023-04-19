@@ -39,7 +39,7 @@ namespace TicTacToe.Test
 
             var result = _game.GetStatus();
 
-            result.Should().Be("[X][Y][ ][ ][ ][ ][ ][ ][ ]");
+            result.Should().Be("[X][O][ ][ ][ ][ ][ ][ ][ ]");
         }
 
         [Test]
@@ -51,7 +51,7 @@ namespace TicTacToe.Test
 
             var result = _game.GetStatus();
 
-            result.Should().Be("[X][Y][X][ ][ ][ ][ ][ ][ ]");
+            result.Should().Be("[X][O][X][ ][ ][ ][ ][ ][ ]");
         }
 
         [Test]
@@ -64,7 +64,7 @@ namespace TicTacToe.Test
 
             var result = _game.GetStatus();
 
-            result.Should().Be("[X][Y][ ][Y][ ][ ][ ][ ][X]");
+            result.Should().Be("[X][O][ ][O][ ][ ][ ][ ][X]");
         }
 
         [Test]
@@ -78,7 +78,7 @@ namespace TicTacToe.Test
 
             var result = _game.GetStatus();
 
-            result.Should().Be("[X][Y][X][ ][X][ ][ ][ ][Y]");
+            result.Should().Be("[X][O][X][ ][X][ ][ ][ ][O]");
         }
 
         [Test]
@@ -93,7 +93,7 @@ namespace TicTacToe.Test
 
             var result = _game.GetStatus();
 
-            result.Should().Be("[X][Y][ ][Y][X][Y][ ][X][ ]");
+            result.Should().Be("[X][O][ ][O][X][O][ ][X][ ]");
         }
 
         [Test]
@@ -122,7 +122,7 @@ namespace TicTacToe.Test
 
             var result = _game.GetStatus();
 
-            result.Should().Be("Player Y WIN!");
+            result.Should().Be("Player O WIN!");
         }
 
         [Test]
@@ -151,7 +151,7 @@ namespace TicTacToe.Test
 
             var result = _game.GetStatus();
 
-            result.Should().Be("Player Y WIN!");
+            result.Should().Be("Player O WIN!");
         }
 
         [Test]
@@ -180,7 +180,7 @@ namespace TicTacToe.Test
 
             var result = _game.GetStatus();
 
-            result.Should().Be("Player Y WIN!");
+            result.Should().Be("Player O WIN!");
         }
 
         [Test]
@@ -209,7 +209,7 @@ namespace TicTacToe.Test
 
             var result = _game.GetStatus();
 
-            result.Should().Be("Player Y WIN!");
+            result.Should().Be("Player O WIN!");
         }
 
         [Test]
@@ -238,7 +238,7 @@ namespace TicTacToe.Test
 
             var result = _game.GetStatus();
 
-            result.Should().Be("Player Y WIN!");
+            result.Should().Be("Player O WIN!");
         }
 
         [Test]
@@ -267,7 +267,7 @@ namespace TicTacToe.Test
 
             var result = _game.GetStatus();
 
-            result.Should().Be("Player Y WIN!");
+            result.Should().Be("Player O WIN!");
         }
 
         [Test]
@@ -296,7 +296,7 @@ namespace TicTacToe.Test
 
             var result = _game.GetStatus();
 
-            result.Should().Be("Player Y WIN!");
+            result.Should().Be("Player O WIN!");
         }
 
         [Test]
@@ -325,7 +325,7 @@ namespace TicTacToe.Test
 
             var result = _game.GetStatus();
 
-            result.Should().Be("Player Y WIN!");
+            result.Should().Be("Player O WIN!");
         }
 
         [Test]
