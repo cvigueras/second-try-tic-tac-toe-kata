@@ -31,30 +31,17 @@ public class Game
 
     public void AddMotion(Position position)
     {
-        IsValidMovement(position);
-        _board.Value[position.X, position.Y] = $"[{_tokenTurn}]";
-        SetTurn();
-    }
-
-    private void IsValidMovement(Position position)
-    {
         if (position.CheckValidPosition() || _board.IsPositionBusy(position))
         {
             throw new Exception("Invalid movement!");
         }
+        SetTurn(position);
     }
 
-    private void SetTurn()
+    private void SetTurn(Position position)
     {
+        _board.Value[position.X, position.Y] = $"[{_tokenTurn}]";
         _board.FreeFields--;
-        switch (_tokenTurn)
-        {
-            case Token.X:
-                _tokenTurn = Token.Y;
-                return;
-            case Token.Y:
-                _tokenTurn = Token.X;
-                break;
-        }
+        _tokenTurn = _tokenTurn == Token.X ? Token.Y : Token.X;
     }
 }
