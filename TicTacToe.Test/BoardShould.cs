@@ -328,5 +328,15 @@ namespace TicTacToe.Test
 
             wrongPlay.Should().Throw<Exception>().WithMessage("Invalid movement!");
         }
+
+        [Test]
+        public void ThrowExceptionWhenTokenRepeatTurn()
+        {
+            _game.AddMotion(Token.X, new Position(0, 1));
+
+            Action wrongPlay = () => _game.AddMotion(Token.X, new Position(0, 2));
+
+            wrongPlay.Should().Throw<Exception>().WithMessage("Invalid movement!");
+        }
     }
 }
