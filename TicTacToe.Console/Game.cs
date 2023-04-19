@@ -3,13 +3,15 @@
 public class Game
 {
     private readonly Board _board;
-    private Token _tokenTurn;
+    private Token TokenTurn;
 
     public Game()
     {
         _board = new Board();
-        _tokenTurn = Token.X;
+        TokenTurn = Token.X;
     }
+    public Board Board => _board;
+    public Token Token => TokenTurn;
 
     public string GetStatus()
     {
@@ -40,8 +42,8 @@ public class Game
 
     private void SetTurn(Position position)
     {
-        _board.Value[position.X, position.Y] = $"[{_tokenTurn}]";
+        _board.Value[position.X, position.Y] = $"[{TokenTurn}]";
         _board.FreeFields--;
-        _tokenTurn = _tokenTurn == Token.X ? Token.Y : Token.X;
+        TokenTurn = TokenTurn == Token.X ? Token.Y : Token.X;
     }
 }
