@@ -34,57 +34,66 @@ namespace TicTacToe.Test
         [Test]
         public void InsertFirstMotionForPlayerY()
         {
+            _game.AddMotion(Token.X, new Position(0, 0));
             _game.AddMotion(Token.Y, new Position(0, 1));
 
             var result = _game.Print();
 
-            result.Should().Be("[ ][Y][ ][ ][ ][ ][ ][ ][ ]");
+            result.Should().Be("[X][Y][ ][ ][ ][ ][ ][ ][ ]");
         }
 
         [Test]
         public void InsertSecondMotionForPlayerX()
         {
             _game.AddMotion(Token.X, new Position(0, 0));
+            _game.AddMotion(Token.Y, new Position(0, 1));
             _game.AddMotion(Token.X, new Position(0, 2));
 
             var result = _game.Print();
 
-            result.Should().Be("[X][ ][X][ ][ ][ ][ ][ ][ ]");
+            result.Should().Be("[X][Y][X][ ][ ][ ][ ][ ][ ]");
         }
 
         [Test]
         public void InsertSecondMotionForPlayerY()
         {
+            _game.AddMotion(Token.X, new Position(0, 0));
             _game.AddMotion(Token.Y, new Position(0, 1));
+            _game.AddMotion(Token.X, new Position(2, 2));
             _game.AddMotion(Token.Y, new Position(1, 0));
 
             var result = _game.Print();
 
-            result.Should().Be("[ ][Y][ ][Y][ ][ ][ ][ ][ ]");
+            result.Should().Be("[X][Y][ ][Y][ ][ ][ ][ ][X]");
         }
 
         [Test]
         public void InsertThirdMotionForPlayerX()
         {
             _game.AddMotion(Token.X, new Position(0, 0));
+            _game.AddMotion(Token.Y, new Position(0, 1));
             _game.AddMotion(Token.X, new Position(0, 2));
+            _game.AddMotion(Token.Y, new Position(2, 2));
             _game.AddMotion(Token.X, new Position(1, 1));
 
             var result = _game.Print();
 
-            result.Should().Be("[X][ ][X][ ][X][ ][ ][ ][ ]");
+            result.Should().Be("[X][Y][X][ ][X][ ][ ][ ][Y]");
         }
 
         [Test]
         public void InsertThirdMotionForPlayerY()
         {
+            _game.AddMotion(Token.X, new Position(0, 0));
             _game.AddMotion(Token.Y, new Position(0, 1));
+            _game.AddMotion(Token.X, new Position(1, 1));
             _game.AddMotion(Token.Y, new Position(1, 0));
+            _game.AddMotion(Token.X, new Position(2, 1));
             _game.AddMotion(Token.Y, new Position(1, 2));
 
             var result = _game.Print();
 
-            result.Should().Be("[ ][Y][ ][Y][ ][Y][ ][ ][ ]");
+            result.Should().Be("[X][Y][ ][Y][X][Y][ ][X][ ]");
         }
 
         [Test]
@@ -104,10 +113,11 @@ namespace TicTacToe.Test
         [Test]
         public void WinPlayerYByFirstRow()
         {
-            _game.AddMotion(Token.Y, new Position(0, 0));
             _game.AddMotion(Token.X, new Position(1, 0));
-            _game.AddMotion(Token.Y, new Position(0, 1));
+            _game.AddMotion(Token.Y, new Position(0, 0));
             _game.AddMotion(Token.X, new Position(1, 2));
+            _game.AddMotion(Token.Y, new Position(0, 1));
+            _game.AddMotion(Token.X, new Position(2, 2));
             _game.AddMotion(Token.Y, new Position(0, 2));
 
             var result = _game.Print();
@@ -132,10 +142,11 @@ namespace TicTacToe.Test
         [Test]
         public void WinPlayerYBySecondRow()
         {
-            _game.AddMotion(Token.Y, new Position(1, 0));
             _game.AddMotion(Token.X, new Position(0, 0));
-            _game.AddMotion(Token.Y, new Position(1, 1));
+            _game.AddMotion(Token.Y, new Position(1, 0));
             _game.AddMotion(Token.X, new Position(2, 0));
+            _game.AddMotion(Token.Y, new Position(1, 1));
+            _game.AddMotion(Token.X, new Position(2, 2));
             _game.AddMotion(Token.Y, new Position(1, 2));
 
             var result = _game.Print();
@@ -160,10 +171,11 @@ namespace TicTacToe.Test
         [Test]
         public void WinPlayerYByThirdRow()
         {
-            _game.AddMotion(Token.Y, new Position(2, 0));
             _game.AddMotion(Token.X, new Position(0, 0));
-            _game.AddMotion(Token.Y, new Position(2, 1));
+            _game.AddMotion(Token.Y, new Position(2, 0));
             _game.AddMotion(Token.X, new Position(1, 0));
+            _game.AddMotion(Token.Y, new Position(2, 1));
+            _game.AddMotion(Token.X, new Position(1, 1));
             _game.AddMotion(Token.Y, new Position(2, 2));
 
             var result = _game.Print();
@@ -188,10 +200,11 @@ namespace TicTacToe.Test
         [Test]
         public void WinPlayerYByFirstColumn()
         {
-            _game.AddMotion(Token.Y, new Position(0, 0));
             _game.AddMotion(Token.X, new Position(0, 1));
-            _game.AddMotion(Token.Y, new Position(1, 0));
+            _game.AddMotion(Token.Y, new Position(0, 0));
             _game.AddMotion(Token.X, new Position(1, 1));
+            _game.AddMotion(Token.Y, new Position(1, 0));
+            _game.AddMotion(Token.X, new Position(2, 2));
             _game.AddMotion(Token.Y, new Position(2, 0));
 
             var result = _game.Print();
@@ -216,10 +229,11 @@ namespace TicTacToe.Test
         [Test]
         public void WinPlayerYBySecondColumn()
         {
-            _game.AddMotion(Token.Y, new Position(0, 1));
             _game.AddMotion(Token.X, new Position(0, 0));
-            _game.AddMotion(Token.Y, new Position(1, 1));
+            _game.AddMotion(Token.Y, new Position(0, 1));
             _game.AddMotion(Token.X, new Position(1, 0));
+            _game.AddMotion(Token.Y, new Position(1, 1));
+            _game.AddMotion(Token.X, new Position(2, 2));
             _game.AddMotion(Token.Y, new Position(2, 1));
 
             var result = _game.Print();
@@ -244,10 +258,11 @@ namespace TicTacToe.Test
         [Test]
         public void WinPlayerYByThirdColumn()
         {
-            _game.AddMotion(Token.Y, new Position(0, 2));
             _game.AddMotion(Token.X, new Position(0, 0));
-            _game.AddMotion(Token.Y, new Position(1, 2));
+            _game.AddMotion(Token.Y, new Position(0, 2));
             _game.AddMotion(Token.X, new Position(1, 0));
+            _game.AddMotion(Token.Y, new Position(1, 2));
+            _game.AddMotion(Token.X, new Position(1, 1));
             _game.AddMotion(Token.Y, new Position(2, 2));
 
             var result = _game.Print();
@@ -272,10 +287,11 @@ namespace TicTacToe.Test
         [Test]
         public void WinPlayerYByFirstDiagonal()
         {
-            _game.AddMotion(Token.Y, new Position(0, 0));
             _game.AddMotion(Token.X, new Position(0, 1));
-            _game.AddMotion(Token.Y, new Position(1, 1));
+            _game.AddMotion(Token.Y, new Position(0, 0));
             _game.AddMotion(Token.X, new Position(1, 0));
+            _game.AddMotion(Token.Y, new Position(1, 1));
+            _game.AddMotion(Token.X, new Position(1, 2));
             _game.AddMotion(Token.Y, new Position(2, 2));
 
             var result = _game.Print();
@@ -300,10 +316,11 @@ namespace TicTacToe.Test
         [Test]
         public void WinPlayerYBySecondDiagonal()
         {
-            _game.AddMotion(Token.Y, new Position(0, 2));
             _game.AddMotion(Token.X, new Position(0, 1));
-            _game.AddMotion(Token.Y, new Position(1, 1));
+            _game.AddMotion(Token.Y, new Position(0, 2));
             _game.AddMotion(Token.X, new Position(1, 0));
+            _game.AddMotion(Token.Y, new Position(1, 1));
+            _game.AddMotion(Token.X, new Position(2, 2));
             _game.AddMotion(Token.Y, new Position(2, 0));
 
             var result = _game.Print();
@@ -322,9 +339,10 @@ namespace TicTacToe.Test
         [Test]
         public void ThrowExceptionWhenFieldIsBusy()
         {
+            _game.AddMotion(Token.X, new Position(0, 0));
             _game.AddMotion(Token.Y, new Position(0, 1));
 
-            Action wrongPlay = () => _game.AddMotion(Token.Y, new Position(0, 1));
+            Action wrongPlay = () => _game.AddMotion(Token.X, new Position(0, 0));
 
             wrongPlay.Should().Throw<Exception>().WithMessage("Invalid movement!");
         }
