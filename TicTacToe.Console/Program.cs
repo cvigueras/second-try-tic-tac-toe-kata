@@ -25,6 +25,7 @@ while (game.Board.FreeFields > 0)
             {
                 Console.Clear();
                 PrintBoard(game);
+                Console.WriteLine();
                 Console.WriteLine(status);
                 Console.ReadLine();
                 break;

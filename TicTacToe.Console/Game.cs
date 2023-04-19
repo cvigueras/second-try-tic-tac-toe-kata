@@ -44,6 +44,6 @@ public class Game
     {
         _board.Value[position.X, position.Y] = $"[{TokenTurn}]";
         _board.FreeFields--;
-        TokenTurn = TokenTurn == Token.X ? Token.Y : Token.X;
+        TokenTurn = TokenTurn == Token.X ? Token.O : Token.X;
     }
 }
