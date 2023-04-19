@@ -27,28 +27,10 @@ public class Game
 
     private string CheckWinner()
     {
-        if (!string.IsNullOrEmpty(_board.GetWinnerByRow()))
-        {
-            return _board.GetWinnerByRow();
-        }
-
-        if (!string.IsNullOrEmpty(_board.GetWinnerByColumn()))
-        {
-            return _board.GetWinnerByColumn();
-        }
-
-        if (!string.IsNullOrEmpty(_board.CheckWinnerByDiagonal()))
-        {
-            return _board.CheckWinnerByDiagonal();
-        }
-
-        if (_numberOfPlays == _maxNumberOfPlays)
-        {
-            return "Draw!";
-        }
-
-        return string.Empty;
-
+        return !string.IsNullOrEmpty(_board.GetWinnerByRow()) ? _board.GetWinnerByRow() :
+            !string.IsNullOrEmpty(_board.GetWinnerByColumn()) ? _board.GetWinnerByColumn() :
+            !string.IsNullOrEmpty(_board.CheckWinnerByDiagonal()) ? _board.CheckWinnerByDiagonal() :
+            _numberOfPlays == _maxNumberOfPlays ? "Draw!" : string.Empty;
     }
 
     public void AddMotion(Position position)
